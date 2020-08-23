@@ -2,10 +2,10 @@
 
 ## 1. HomePage
 
-- Show a map.
-- add a pin.
-- consume api based on pin (http://api.openweathermap.org/data/2.5/find?lat={LAT}&lon={LON}&cnt=15&APPID=<SEU_APPID>).
-- List Cities.
+- Show a map. X
+- add a pin. X
+- consume api based on pin (http://api.openweathermap.org/data/2.5/find?lat={LAT}&lon={LON}&cnt=15&APPID=<SEU_APPID>). X
+- List Cities. X
 - each city need to have a "link" to go to City details.
 
 ## 2. City Details

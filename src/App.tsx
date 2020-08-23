@@ -1,14 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
-import LeafletMap from './components/Map/LeafletMap';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { LayerContextProvider } from './components/context/LayerContext';
+
+import Routes from './routes';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
       <LayerContextProvider>
-        <LeafletMap />
+        <Router>
+          <Routes />
+        </Router>
       </LayerContextProvider>
     </div>
   );
