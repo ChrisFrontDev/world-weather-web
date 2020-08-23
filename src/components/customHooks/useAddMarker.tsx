@@ -37,6 +37,7 @@ function useAddMarker() {
   return {
     markPlace,
     point,
+    cities,
   };
 }
 
