@@ -7,7 +7,7 @@ interface latlng {
 
 const getWeather = ({ lat, lng }: latlng) => {
   return fetch(
-    `http://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${lng}&cnt=15&APPID=${APY_KEY}`,
+    `http://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${lng}&cnt=15&APPID=${APY_KEY}&units=metric`,
   ).then((response) => response.json());
 };
 
