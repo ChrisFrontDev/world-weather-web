@@ -1,27 +1,48 @@
-import React, { useState } from 'react';
-import { LatLngTuple } from 'leaflet';
+import React, { createContext, useState, useCallback, useContext } from 'react';
 
-const latlong: LatLngTuple = [0, 0];
-const LayerContext: any = React.createContext({});
-//  under the declaration of the LayerContext, declare the Provider Component
+import { LeafletMouseEvent, LatLngTuple } from 'leaflet';
+import { getWeather } from '../../shared/services/Api';
 
-const LayerContextProvider = ({ children }: any) => {
-  const [point, setPoint] = useState<LatLngTuple>(latlong);
-  const [cities, setCities] = useState([]);
+interface IMapContextData {
+  markPlace(e: LeafletMouseEvent): void;
+  getCities(latLng: LatLngTuple): void;
+  point: LatLngTuple | null;
+}
 
-  const defaultValue = {
-    point,
-    setPoint,
-    cities,
-    setCities,
-  };
+const LayerContext = createContext<IMapContextData>({} as IMapContextData);
+
+export const LayerContextProvider = ({ children }: any) => {
+  const [point, setPoint] = useState<LatLngTuple | null>(null);
+
+  const markPlace = useCallback(
+    (e: LeafletMouseEvent) => {
+      // console.log(e);
+
+      const makedPlace: LatLngTuple = [e.latlng.lat, e.latlng.lng];
+
+      setPoint(makedPlace);
+    },
+    [setPoint],
+  );
+
+  const getCities = useCallback(async (latLng: LatLngTuple) => {
+    const response = await getWeather({ lat: latLng[0], lng: latLng[1] });
+    console.log('fetchresponse', response);
+  }, []);
 
   return (
-    <LayerContext.Provider value={defaultValue}>
+    <LayerContext.Provider value={{ point, markPlace, getCities }}>
       {children}
     </LayerContext.Provider>
   );
 };
 
 //  and export both objects
-export { LayerContext, LayerContextProvider };
+export function useMarker(): IMapContextData {
+  const context = useContext(LayerContext);
+
+  if (!context) {
+    throw new Error('useMarker() mmust be used within a LayerContextProvider');
+  }
+  return context;
+}
