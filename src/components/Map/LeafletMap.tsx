@@ -1,14 +1,14 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { LeafletMouseEvent, LatLngTuple } from 'leaflet';
 import { Map, TileLayer, LayerGroup, Marker } from 'react-leaflet';
 
-import { useMarker } from '../context/LayerContext';
+import { useMarker } from '../../context/LayerContext';
 
 const defaultLatLng: LatLngTuple = [-15.793657612356293, -47.88249492645264];
 const zoom: number = 12;
 
 const LeafletMap: React.FC = () => {
-  const { markPlace, point, getCities } = useMarker();
+  const { markPlace, point } = useMarker();
 
   const handleClick = useCallback(
     (e: LeafletMouseEvent) => {
@@ -16,12 +16,6 @@ const LeafletMap: React.FC = () => {
     },
     [markPlace],
   );
-
-  useEffect(() => {
-    if (point) {
-      getCities(point);
-    }
-  }, [point, getCities]);
 
   return (
     <>

@@ -1,11 +1,12 @@
 import React, { createContext, useState, useCallback, useContext } from 'react';
 
 import { LeafletMouseEvent, LatLngTuple } from 'leaflet';
-import { getWeather } from '../../shared/services/Api';
+import { getWeather } from '../shared/services/Api';
 
 interface IMapContextData {
   markPlace(e: LeafletMouseEvent): void;
   getCities(latLng: LatLngTuple): void;
+  cities: [] | null;
   point: LatLngTuple | null;
 }
 
@@ -25,13 +26,16 @@ export const LayerContextProvider = ({ children }: any) => {
     [setPoint],
   );
 
+  const [cities, setCities] = useState<[]>([]);
+
   const getCities = useCallback(async (latLng: LatLngTuple) => {
-    const response = await getWeather({ lat: latLng[0], lng: latLng[1] });
-    console.log('fetchresponse', response);
+    const { list } = await getWeather({ lat: latLng[0], lng: latLng[1] });
+
+    setCities(list);
   }, []);
 
   return (
-    <LayerContext.Provider value={{ point, markPlace, getCities }}>
+    <LayerContext.Provider value={{ point, markPlace, getCities, cities }}>
       {children}
     </LayerContext.Provider>
   );

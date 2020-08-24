@@ -1,14 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { LayerContextProvider } from './components/context/LayerContext';
-
+import { LayerContextProvider } from './context/LayerContext';
+import CreateGlobalStyle from './styles/Global';
 import Routes from './routes';
-import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <CreateGlobalStyle />
       <LayerContextProvider>
         <Router>
           <Routes />
