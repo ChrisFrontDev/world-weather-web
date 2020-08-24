@@ -20,6 +20,19 @@ const ListCities = () => {
     // eslint-disable-next-line
   }, [cities]);
 
+  const handleClickCity = (cityId: any) => {
+    var w = 620;
+    var h = 360;
+    var left = window.screen.width / 2 - (w / 2 + 10);
+    var top = window.screen.height / 2 - (h / 2 + 50);
+
+    window.open(
+      `${document.URL}city/${cityId}`,
+      '_blank',
+      `location=no,height=540,width=360,scrollbars=no,status=no,toolbar=no,left=${left},top=${top}`,
+    );
+  };
+
   return (
     <>
       {!!showList ? (
@@ -29,16 +42,7 @@ const ListCities = () => {
           </CloseMinimizeButton>
 
           {cities?.map((city: any) => (
-            <City
-              key={city.id}
-              onClick={() =>
-                window.open(
-                  `${document.URL}city/${city.id}`,
-                  '_blank',
-                  'location=yes,height=540,width=360,scrollbars=yes,status=yes',
-                )
-              }
-            >
+            <City key={city.id} onClick={() => handleClickCity(city.id)}>
               <h3>{city.name}:</h3>
               <p>{city.main.temp} ºC</p>
             </City>
