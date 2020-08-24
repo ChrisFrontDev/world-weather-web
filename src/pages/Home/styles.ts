@@ -7,6 +7,7 @@ export const Container = styled.div`
 `;
 
 export const SearchButton = styled.button`
+  color: ${({ theme }: any) => theme.buttonText};
   position: absolute;
   top: 0;
   z-index: 999;

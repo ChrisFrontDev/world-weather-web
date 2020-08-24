@@ -1,20 +1,29 @@
-import React from 'react';
-// import logo from './logo.svg';
+import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { LayerContextProvider } from './context/LayerContext';
-import CreateGlobalStyle from './styles/Global';
+import { ThemeProvider } from 'styled-components';
+
 import Routes from './routes';
 
+import { darkTheme } from './styles/themes/Dark';
+import { lightTheme } from './styles/themes/Light';
+import CreateGlobalStyle from './styles/Global';
+
+import { LayerContextProvider } from './context/LayerContext';
+
 function App() {
+  const [theme, setTheme] = useState('dark');
+
   return (
-    <div className="App">
-      <CreateGlobalStyle />
-      <LayerContextProvider>
-        <Router>
-          <Routes />
-        </Router>
-      </LayerContextProvider>
-    </div>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <div className="App">
+        <CreateGlobalStyle />
+        <LayerContextProvider>
+          <Router>
+            <Routes />
+          </Router>
+        </LayerContextProvider>
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -10,23 +10,33 @@
 
 ## 2. City Details
 
-- Name of the selected city
-- Minimum temperature (Celsius)
-- Maximum temperature (Celsius)
+- Name of the selected city X
+- Minimum temperature (Celsius) X
+- Maximum temperature (Celsius) X
 
 # World Weather App:
 
 ## Technologies used
 
-- Typescript
-- React
-- List
+- Typescript: for type checking and helps to code an app with fewer bugs.
+
+- styled component: help keep the concerns of styling and element architecture separated and make components more readable.
+
+- react-router: for app routing
+
+-ESLint/Prettier: for coding patterns and enforce style coding.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
+If it your first time running you must run :
+
+### `yarn install`
+
+to install dependencies in project directory.
+
+After installed, you can run:
 
 ### `yarn start`
 

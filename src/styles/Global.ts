@@ -10,7 +10,8 @@ export default createGlobalStyle`
   }
 
   body {
-    color:#000;
+    background: ${({ theme }: any) => theme.body};
+    color: ${({ theme }: any) => theme.neutral};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -26,8 +27,8 @@ export default createGlobalStyle`
 
   button {
     padding:6px 16px;
-    background: linear-gradient(117.03deg, #7b42f6 0%, #b01eff 100%);
-    color: #fff;
+    background: ${({ theme }: any) => theme.primary};
+    color: ${({ theme }: any) => theme.neutral};
     font-weight: 500;
     border:0;
     border-radius: 30px;
@@ -37,7 +38,7 @@ export default createGlobalStyle`
     &:disabled{
       font-weight: 500;
       background: #d2d4d6;
-      color: #fff;
+      color: ${({ theme }: any) => theme.neutral};
       box-shadow: 0 0 0 0;
       cursor:not-allowed;
     }
