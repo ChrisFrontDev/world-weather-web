@@ -17,8 +17,6 @@ export const LayerContextProvider = ({ children }: any) => {
 
   const markPlace = useCallback(
     (e: LeafletMouseEvent) => {
-      // console.log(e);
-
       const makedPlace: LatLngTuple = [e.latlng.lat, e.latlng.lng];
 
       setPoint(makedPlace);
@@ -30,6 +28,8 @@ export const LayerContextProvider = ({ children }: any) => {
 
   const getCities = useCallback(async (latLng: LatLngTuple) => {
     const { list } = await getWeather({ lat: latLng[0], lng: latLng[1] });
+
+    localStorage.setItem('@WorldWeatherApp:cities', JSON.stringify(list));
 
     setCities(list);
   }, []);

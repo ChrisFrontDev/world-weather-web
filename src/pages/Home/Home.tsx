@@ -5,7 +5,7 @@ import ListCities from '../../components/ListCities/ListCities';
 
 import { useMarker } from '../../context/LayerContext';
 
-import { Container, SearchButton } from './styles';
+import { Container, SearchButton } from './Styles';
 
 const Home = () => {
   const { getCities, point, cities } = useMarker();
@@ -17,15 +17,17 @@ const Home = () => {
   }, [getCities, point]);
 
   return (
-    <Container>
-      <SearchButton onClick={handleButtonClick} disabled={!point}>
-        {!point ? 'click on a place on the map' : 'Search Cities nearby'}
-      </SearchButton>
+    <>
+      <Container>
+        <SearchButton onClick={handleButtonClick} disabled={!point}>
+          {!point ? 'click on a place on the map' : 'Search Cities nearby'}
+        </SearchButton>
 
-      <LeafletMap />
+        <LeafletMap />
 
-      {!!cities?.length && <ListCities />}
-    </Container>
+        {!!cities?.length && <ListCities />}
+      </Container>
+    </>
   );
 };
 

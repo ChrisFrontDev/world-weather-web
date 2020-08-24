@@ -18,7 +18,14 @@ export const Container = styled.div`
 `;
 
 export const City = styled.div`
-  margin: 6px 16px;
+  cursor: pointer;
+  padding: 6px 16px;
+  border-radius: 10px;
+
+  &:hover {
+    background: linear-gradient(117.03deg, #7b42f6 0%, #b01eff 100%);
+    color: #fff;
+  }
 `;
 
 export const MinimizedContainer = styled(Container)`

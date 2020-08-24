@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+
 import { useMarker } from '../../context/LayerContext';
+
 import {
   Container,
   City,
   MinimizedContainer,
   CloseMinimizeButton,
 } from './Styles';
+
 const ListCities = () => {
   const { cities } = useMarker();
   const [showList, setshowList] = useState(true);
@@ -14,6 +17,7 @@ const ListCities = () => {
     if (!showList) {
       setshowList(true);
     }
+    // eslint-disable-next-line
   }, [cities]);
 
   return (
@@ -23,8 +27,18 @@ const ListCities = () => {
           <CloseMinimizeButton onClick={() => setshowList(false)}>
             X
           </CloseMinimizeButton>
+
           {cities?.map((city: any) => (
-            <City key={city.id}>
+            <City
+              key={city.id}
+              onClick={() =>
+                window.open(
+                  `${document.URL}city/${city.id}`,
+                  '_blank',
+                  'location=yes,height=570,width=520,scrollbars=yes,status=yes',
+                )
+              }
+            >
               <h3>{city.name}:</h3>
               <span>{city.main.temp} ºC</span>
             </City>
