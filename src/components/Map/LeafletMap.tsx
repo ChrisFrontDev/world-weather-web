@@ -4,7 +4,7 @@ import { Map, TileLayer, LayerGroup, Marker } from 'react-leaflet';
 
 import { useMarker } from '../../context/LayerContext';
 
-const defaultLatLng: LatLngTuple = [53.2214, -4.2033];
+const defaultLatLng: LatLngTuple = [-22.936292, -43.2046374];
 const zoom: number = 12;
 
 const LeafletMap: React.FC = () => {
@@ -12,6 +12,7 @@ const LeafletMap: React.FC = () => {
 
   const handleClick = useCallback(
     (e: LeafletMouseEvent) => {
+      console.log();
       markPlace(e);
     },
     [markPlace],

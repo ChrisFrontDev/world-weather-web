@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Container } from './Styles';
 
 const CityDetails = () => {
   const { id } = useParams();
@@ -21,10 +22,27 @@ const CityDetails = () => {
 
   return (
     <>
-      <div>
-        <h1>Details:{id}</h1>
-        {!!city && <h1>Meu site : {city.name}</h1>}
-      </div>
+      {!!city ? (
+        <Container>
+          <h1>{city.name}</h1>
+          <img
+            id="wicon"
+            src={`http://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`}
+            alt="Weather icon"
+          ></img>
+          <h2>{city.weather[0].description}</h2>
+          <div>
+            <span>
+              Min: <strong>{city.main.temp_min} ºC</strong>
+            </span>
+            <span>
+              Max: <strong>{city.main.temp_max} ºC</strong>
+            </span>
+          </div>
+        </Container>
+      ) : (
+        <h1>error, close and try again</h1>
+      )}
     </>
   );
 };

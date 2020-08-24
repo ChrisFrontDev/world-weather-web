@@ -12,9 +12,12 @@ export const Container = styled.div`
   max-width: 320px;
   width: 100%;
   height: 100vh;
-  background-color: #fff;
+  background: inherit;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(5px);
 `;
 
 export const City = styled.div`

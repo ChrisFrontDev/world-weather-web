@@ -35,12 +35,12 @@ const ListCities = () => {
                 window.open(
                   `${document.URL}city/${city.id}`,
                   '_blank',
-                  'location=yes,height=570,width=520,scrollbars=yes,status=yes',
+                  'location=yes,height=540,width=360,scrollbars=yes,status=yes',
                 )
               }
             >
               <h3>{city.name}:</h3>
-              <span>{city.main.temp} ºC</span>
+              <p>{city.main.temp} ºC</p>
             </City>
           ))}
         </Container>
