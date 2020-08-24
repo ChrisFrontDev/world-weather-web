@@ -9,11 +9,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  img {
-    width: 120px;
-    height: 120px;
-  }
-
   div {
     margin-top: 16px;
 
