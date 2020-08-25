@@ -24,7 +24,7 @@
 
 - react-router: for app routing
 
--ESLint/Prettier: for coding patterns and enforce style coding.
+- ESLint/Prettier: for coding patterns and enforce style coding.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
