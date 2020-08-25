@@ -6,7 +6,7 @@
 - add a pin. X
 - consume api based on pin (http://api.openweathermap.org/data/2.5/find?lat={LAT}&lon={LON}&cnt=15&APPID=<SEU_APPID>). X
 - List Cities. X
-- each city need to have a "link" to go to City details.
+- each city need to have a "link" to go to City details on a new window. X
 
 ## 2. City Details
 
