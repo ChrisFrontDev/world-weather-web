@@ -1,5 +1,5 @@
 export const lightTheme = {
-  primary: 'linear-gradient(117.03deg, #7b42f6 0%, #b01eff 100%)',
+  primary: 'linear-gradient(93.96deg, #4F73C3 0%, #3C46A2 100%)',
   body: '#FFFFFF',
   neutral: '#363537',
   buttonText: '#FFFFFF',

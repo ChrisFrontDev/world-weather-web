@@ -6,6 +6,8 @@ import ListCities from '../../components/ListCities/ListCities';
 import { useMarker } from '../../context/LayerContext';
 
 import { Container, SearchButton } from './Styles';
+import Toggle from '../../components/Toggle/Toggle';
+import { useDarkMode } from '../../hooks/useDarkMode';
 
 const Home = () => {
   const { getCities, point, cities } = useMarker();

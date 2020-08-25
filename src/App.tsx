@@ -9,14 +9,21 @@ import { lightTheme } from './styles/themes/Light';
 import CreateGlobalStyle from './styles/Global';
 
 import { LayerContextProvider } from './context/LayerContext';
+import Toggle from './components/Toggle/Toggle';
+import { useDarkMode } from './hooks/useDarkMode';
 
 function App() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, themeToggler, mountedComponent] = useDarkMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+  if (!mountedComponent) return <div />;
 
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <ThemeProvider theme={themeMode}>
+      <CreateGlobalStyle />
       <div className="App">
-        <CreateGlobalStyle />
+        <Toggle theme={theme} toggleTheme={themeToggler} />
+
         <LayerContextProvider>
           <Router>
             <Routes />
